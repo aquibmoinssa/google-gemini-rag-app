@@ -9,16 +9,16 @@ from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
 import os
 
-st.set_page_config(page_title="Document Genie", layout="wide")
+st.set_page_config(page_title="GARA", layout="wide")
 
 st.markdown("""
-## Document Genie: Get instant insights from your Documents
+## Google AI RAG Agent: Get instant insights from your Documents
 
-This chatbot is built using the Retrieval-Augmented Generation (RAG) framework, leveraging Google's Generative AI model Gemini-PRO. It processes uploaded PDF documents by breaking them down into manageable chunks, creates a searchable vector store, and generates accurate answers to user queries. This advanced approach ensures high-quality, contextually relevant responses for an efficient and effective user experience.
+This utility is built using the Retrieval-Augmented Generation (RAG) framework, leveraging Google's Generative AI model Gemini-PRO. It processes uploaded PDF documents by breaking them down into manageable chunks, creates a searchable vector store, and generates accurate answers to user queries. This advanced approach ensures high-quality, contextually relevant responses for an efficient and effective user experience.
 
 ### How It Works
 
-Follow these simple steps to interact with the chatbot:
+Follow these simple steps to interact with the utility:
 
 1. **Enter Your API Key**: You'll need a Google API key for the chatbot to access Google's Generative AI models. Obtain your API key https://makersuite.google.com/app/apikey.
 
@@ -73,7 +73,7 @@ def user_input(user_question, api_key):
     st.write("Reply: ", response["output_text"])
 
 def main():
-    st.header("AI clone chatbot💁")
+    st.header("Google AI RAG Utility")
 
     user_question = st.text_input("Ask a Question from the PDF Files", key="user_question")
 
@@ -81,7 +81,7 @@ def main():
         user_input(user_question, api_key)
 
     with st.sidebar:
-        st.title("Menu:")
+        st.title("PDF Uploader:")
         pdf_docs = st.file_uploader("Upload your PDF Files and Click on the Submit & Process Button", accept_multiple_files=True, key="pdf_uploader")
         if st.button("Submit & Process", key="process_button") and api_key:  # Check if API key is provided before processing
             with st.spinner("Processing..."):
