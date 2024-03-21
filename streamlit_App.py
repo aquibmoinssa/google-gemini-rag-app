@@ -9,22 +9,20 @@ from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
 import os
 
-st.set_page_config(page_title="GARA", layout="wide")
+st.set_page_config(page_title="GARU", layout="wide")
 
 st.markdown("""
-## Google AI RAG Agent: Get instant insights from your Documents
+## Google AI RAG Utility: Get Google AI model to work on your PDF documents.
 
-This utility is built using the Retrieval-Augmented Generation (RAG) framework, leveraging Google's Generative AI model Gemini-PRO. It processes uploaded PDF documents by breaking them down into manageable chunks, creates a searchable vector store, and generates accurate answers to user queries. This advanced approach ensures high-quality, contextually relevant responses for an efficient and effective user experience.
-
-### How It Works
+This utility is built using the Retrieval-Augmented Generation (RAG) framework, leveraging Google's Generative AI model Gemini-PRO. It processes uploaded PDF documents by breaking them down into manageable chunks, creates a searchable vector store, and generates relevant answers to user queries. 
 
 Follow these simple steps to interact with the utility:
 
-1. **Enter Your API Key**: You'll need a Google API key for the chatbot to access Google's Generative AI models. Obtain your API key https://makersuite.google.com/app/apikey.
+1. **Enter Your Google API Key**: You can get a Google API key from https://makersuite.google.com/app/apikey.
 
-2. **Upload Your Documents**: The system accepts multiple PDF files at once, analyzing the content to provide comprehensive insights.
+2. **Upload Your Documents**: The system accepts single or multiple PDF files and sifts through the content to address user queries.
 
-3. **Ask a Question**: After processing the documents, ask any question related to the content of your uploaded documents for a precise answer.
+3. **Prompt the AI Model**: After processing the documents, ask any question related to the contents of the uploaded documents for a precise answer.
 """)
 
 
@@ -75,7 +73,7 @@ def user_input(user_question, api_key):
 def main():
     st.header("Google AI RAG Utility")
 
-    user_question = st.text_input("Ask a Question from the PDF Files", key="user_question")
+    user_question = st.text_input("Prompt Google AI on your PDF Files", key="user_question")
 
     if user_question and api_key:  # Ensure API key and user question are provided
         user_input(user_question, api_key)
@@ -89,6 +87,13 @@ def main():
                 text_chunks = get_text_chunks(raw_text)
                 get_vector_store(text_chunks, api_key)
                 st.success("Done")
+        st.subheader("")
+        st.subheader("Based on Sri Laxmi's approach")
+        st.subheader("")
+        st.subheader("Aquib Moin @ AIvigorate")
+        st.subheader("")
+        st.markdown("[Back to AIvigorate.ai](http://www.aivigorate.ai/)")
+        
 
 if __name__ == "__main__":
     main()
