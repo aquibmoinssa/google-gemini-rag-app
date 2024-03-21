@@ -92,8 +92,8 @@ def main():
         st.subheader("")
         st.subheader("Aquib Moin @ AIvigorate")
         st.subheader("")
-        #st.markdown("[Back to AIvigorate.ai](http://www.aivigorate.ai/)")
-        st.markdown('<a href="http://www.aivigorate.ai/" target="_self">Back to AIvigorate.ai</a>', unsafe_allow_html=True)
+        st.write("[Back to AIvigorate.ai](http://www.aivigorate.ai/)")
+        #st.markdown('<a href="http://www.aivigorate.ai/" target="_self">Back to AIvigorate.ai</a>', unsafe_allow_html=True)
         
 
 if __name__ == "__main__":
